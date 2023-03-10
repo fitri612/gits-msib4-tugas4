@@ -12,7 +12,6 @@ class Mentor extends Model
     protected $table = 'mentorgits';
 
     protected $fillable = [
-        'id_mentor',
         'name',
         'role',
         'created_at',

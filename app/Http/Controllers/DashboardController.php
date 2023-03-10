@@ -42,4 +42,28 @@ class DashboardController extends Controller
 
         return redirect()->route('mentors.index')->with('success', 'Mentor deleted successfully');
     }
+
+    // edit fungsi untuk menampilkan form edit
+    public function edit($id_mentor)
+    {
+        $mentor = Mentor::findOrFail($id_mentor);
+        return view('pages.dashboard', compact('mentor'));
+    }
+
+    // update fungsi untuk mengupdate data
+    public function update(Request $request, $id_mentor)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'role' => 'required|string|max:255',
+        ]);
+
+        $mentor = Mentor::findOrFail($id_mentor);
+        $mentor->name = $request->input('name');
+        $mentor->role = $request->input('role');
+        $mentor->save();
+
+        return redirect()->route('mentors.index')->with('success', 'Mentor updated successfully');
+    }
+
 }

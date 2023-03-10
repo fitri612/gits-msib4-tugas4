@@ -18,4 +18,6 @@ Route::get('/', [DashboardController::class, 'index'])->name('mentors.index');
 Route::get('/create', [DashboardController::class, 'create']);
 Route::post('/store', [DashboardController::class, 'store'])->name('mentors.store');
 Route::delete('/delete/{id_mentor}', [DashboardController::class, 'destroy'])->name('mentors.destroy');
+Route::get('/edit/{id_mentor}', [DashboardController::class, 'edit'])->name('mentors.edit');
+Route::put('/update/{id_mentor}', [DashboardController::class, 'update'])->name('mentors.update');
 

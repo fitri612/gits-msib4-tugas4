@@ -31,7 +31,7 @@
                     {{ $mentor->role }}
                 </td>
                 <td class="row">
-                    <form>
+                    <form action="{{ route('mentors.edit', $mentor->id_mentor) }}" method="GET">
                         <button type="submit">Edit</button>
                     </form>
                     <form action="{{ route('mentors.destroy', $mentor->id_mentor) }}" method="POST">
